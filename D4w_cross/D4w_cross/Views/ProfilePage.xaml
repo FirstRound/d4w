@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="D4w_cross.Views.ProfilePage"
+             xmlns:ViewModels="clr-namespace:D4w_cross.Models.Views"
+             NavigationPage.HasNavigationBar="false"
+             Title="Profile">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <ContentView WidthRequest="100" HeightRequest="100" VerticalOptions="Center"  Margin="0, 60, 0, 0">
+                <Image x:Name="UserImage" Source="Avatar.png" Aspect="AspectFit" />
+            </ContentView>
+            
+            <Label x:Name="UserName" Text="" 
+                   Font="18"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+            
+            <ViewModels:OptionsButton Text="Personal information" 
+                    TextColor="Gray"
+                    Margin="0, 30, 0, 0"
+                    BorderRadius="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"
+                    Clicked="OnPersonalInfo"
+                    />
+            <ViewModels:OptionsButton Text="Payment"
+                    TextColor="Gray"
+                    Margin="0, -18, 0, 0"
+                    BorderRadius="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"
+                    Clicked="OnPayment"                  
+                    />
+            <ViewModels:OptionsButton Text="Setting"
+                    TextColor="Gray"
+                    Margin="0, -18, 0, 0"
+                    BorderRadius="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"                  
+                    />
+            <ViewModels:OptionsButton Text="History"
+                    TextColor="Gray"
+                    Margin="0, -18, 0, 0"
+                    BorderRadius="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"        
+                    Clicked="OnHistory"
+                    />
+            <ViewModels:OptionsButton Text="Support"
+                    TextColor="Gray"
+                    Margin="0, -18, 0, 0"
+                    BorderRadius="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"                  
+                    />
+            <ViewModels:OptionsButton Text="Logout"
+                    TextColor="Gray"
+                    Margin="0, -18, 0, 0"
+                    BorderRadius="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"      
+                    Clicked="OnLogout"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

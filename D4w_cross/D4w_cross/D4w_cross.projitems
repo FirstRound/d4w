@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>59c13ab1-cc09-45c9-8af7-cbf37b25d3d9</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>D4w_cross</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Dependencies\IActionBarChanger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dependencies\ICustomDIalogAlert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dependencies\IPaymentDropIn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\API\APIHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\API\BookingsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\API\CoworkingsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\API\ImagesHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\API\UsersHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Other\CustomDateTimeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Other\IconGetter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Storage\DBHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Other\ErrorHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dependencies\IApplicationOpener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Other\ImageResizer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dependencies\IPermissionRequester.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dependencies\IPicturePicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Storage\LocalStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Other\LocationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Storage\GlobalObjectsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Amenty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\APIResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\AvailableSeats.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Booking.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\BookingList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\ClientToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Coworking.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\CoworkingList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\API\PaymentsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Search\CoworkingSearchOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Search\SearchOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\Token.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\API\WorkingDay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Containers\HistoryItemContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Containers\HoldOnContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CustomEventArgs\AmentyEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CustomEventArgs\CheckBoxEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CustomEventArgs\CoworkingMapEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\AmentyImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\CheckBoxImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\CoworkingsMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\CoworkingPin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\OptionsButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\RoundedButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\RoundedEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\RoundedTransButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Views\StrokeButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BookingPage.xaml.cs">
+      <DependentUpon>BookingPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CoworkingDetailPage.xaml.cs">
+      <DependentUpon>CoworkingDetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CoworkingsListPage.xaml.cs">
+      <DependentUpon>CoworkingsListPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CoworkingsMapPage.xaml.cs">
+      <DependentUpon>CoworkingsMapPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\DatePage.xaml.cs">
+      <DependentUpon>DatePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ForgotConfirmPage.xaml.cs">
+      <DependentUpon>ForgotConfirmPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ForgotPasswordPage.xaml.cs">
+      <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MDPage.xaml.cs">
+      <DependentUpon>MDPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MDPageMaster.xaml.cs">
+      <DependentUpon>MDPageMaster.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LocationPage.xaml.cs">
+      <DependentUpon>LocationPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PersonalInfoPage.xaml.cs">
+      <DependentUpon>PersonalInfoPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TimePage.xaml.cs">
+      <DependentUpon>TimePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CoworkingsMapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SignUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MDPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MDPageMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LocationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TimePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\DatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CoworkingsListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CoworkingDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\BookingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Localization\Localization.en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PersonalInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ForgotPasswordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ForgotConfirmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\HistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Images\Loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Helpers\Storage\" />
+  </ItemGroup>
+</Project>

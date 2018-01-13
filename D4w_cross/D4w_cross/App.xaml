@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="D4w_cross.App">
+	<Application.Resources>
+
+        <ResourceDictionary>
+            <x:String x:Key="login">Login</x:String>
+            <x:String x:Key="email">Email</x:String>
+            <x:String x:Key="password">Password</x:String>
+            <x:String x:Key="forgottenPassword">Forgotten password?</x:String>
+            <x:String x:Key="signUp">Sign Up</x:String>
+            <x:String x:Key="signIn">Sign In</x:String>
+            <x:String x:Key="continue">Continue as guest</x:String>
+
+            <x:String x:Key="firstName">First Name</x:String>
+            <x:String x:Key="lastName">Last Name</x:String>
+            <x:String x:Key="phone">Phone</x:String>
+
+            <x:String x:Key="EMPTY_FIELD">is empty!</x:String>
+            <x:String x:Key="error">Error!</x:String>
+
+            <x:String x:Key="sortNear">Sort Near</x:String>
+            <x:String x:Key="seatAvailability">Seat Availability</x:String>
+            <x:String x:Key="enableGPS">Please, enable access to your geoposition in settings</x:String>
+            <x:String x:Key="anySeats">Any seats available?</x:String>
+            <x:String x:Key="operatingHours">Operating Hours</x:String>
+            <x:String x:Key="nightTime">Night time</x:String>
+            <x:String x:Key="openWeekends">Open weekends</x:String>
+
+            <x:String x:Key="where">Where ?</x:String>
+            <x:String x:Key="everywhere">Everywhere</x:String>
+            <x:String x:Key="nearby">Nearby</x:String>
+            <x:String x:Key="popular">Popular</x:String>
+
+            <x:String x:Key="start">Start</x:String>
+            <x:String x:Key="finish">Finish</x:String>
+            <x:String x:Key="selectTime">Select time</x:String>
+            <x:String x:Key="next">Next</x:String>
+
+            <x:String x:Key="selectDate">Select date or range</x:String>
+
+            <x:String x:Key="free_coffee">Free Coffee</x:String>
+            <x:String x:Key="coffee">Coffee</x:String>
+            <x:String x:Key="free_printing">Free Printing</x:String>
+            <x:String x:Key="conference_room">Conference Room</x:String>
+            <x:String x:Key="outdoor_space">Outdoor Space</x:String>
+            <x:String x:Key="extra_monitor">Extra Monitor</x:String>
+            <x:String x:Key="nap_room">Nap Room</x:String>
+            <x:String x:Key="pet_friendly">Pet Friendly</x:String>
+            <x:String x:Key="kitchen">Kitchen</x:String>
+            <x:String x:Key="bike_storage">Bike Storage</x:String>
+            <x:String x:Key="free_parking">Free Parking</x:String>
+            <x:String x:Key="parking">Parking</x:String>
+            <x:String x:Key="snacks">Snacks</x:String>
+            <x:String x:Key="whiteboards">Whiteboards</x:String>
+            <x:String x:Key="standing_desk">Standing Desk</x:String>
+            <x:String x:Key="mail_service">Mail Service</x:String>
+            <x:String x:Key="phone_booth">Phone Booth</x:String>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:D4w_cross.Models.Views"
+             x:Class="D4w_cross.Views.DatePage">
+    <ContentPage.Content>
+        <StackLayout x:Name="Stack" BackgroundColor="#ccfd6b09">
+            <Label Text="{DynamicResource selectDate}" TextColor="White" HorizontalOptions="Center" Margin="0, 50" />
+            <DatePicker x:Name="Date" BackgroundColor="Transparent" TextColor="White" Margin="20, 0" HeightRequest="40">
+                
+            </DatePicker>
+            <ViewModels:RoundedButton 
+                Text="{DynamicResource next}"
+                Margin="70, 50, 70, 0"
+                BackgroundColor="White"
+                TextColor="#ff8026"
+                Font="Bold"
+                BorderRadius="20"
+                Clicked="OnNext"
+             />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

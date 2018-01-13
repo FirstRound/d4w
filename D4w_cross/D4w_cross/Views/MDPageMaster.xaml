@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="D4w_cross.Views.MDPageMaster"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:viewmoddels="clr-namespace:D4w_cross.Models.Views"
+             Title="Master">
+    <ScrollView>
+        <StackLayout Padding="30, 0, 0, 30" BackgroundColor="White">
+            <Image Source="FilterLogo.png" Margin="-70, 50, 0, 0" />
+        
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 50, 10, 0">
+
+                <Label
+                    Font="Bold"
+                    TextColor="Black"
+                    Text="{DynamicResource sortNear}"
+                />
+                <Switch 
+                    x:Name="SortNear"
+                    IsToggled="false" 
+                    Margin="200, -5, 0, 0"
+                    Toggled="OnToggle"
+                />
+            </RelativeLayout>
+
+            <StackLayout BackgroundColor="#fafafa" Padding="10" Margin="0, 5, 90, 0">
+                <Label
+                Text="{DynamicResource enableGPS}"
+                BackgroundColor="Transparent"
+                TextColor="#868686"
+                FontSize="Small"
+             />
+            </StackLayout>
+
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 20, 0, 5" HeightRequest="35">
+                <Label
+                    Font="Bold"
+                    Text="{DynamicResource seatAvailability}"
+                    TextColor="Black"
+                />
+                <BoxView 
+                    HeightRequest="2" WidthRequest ="130" BackgroundColor="#ff8026"
+                    Margin="150, 10, 0, 0"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="{DynamicResource anySeats}"
+                    TextColor="#8b8b8b"
+                />
+
+                <Label
+                    x:Name="SeatsNum"
+                    Font="Bold"
+                    Margin="180, 2, 0, 0"
+                    Text="1"
+                    TextColor="Black"
+                    BackgroundColor="#fafafa"
+                    WidthRequest="60"
+                    HorizontalTextAlignment="Center"
+                />
+<ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="BGColor" x:TypeArguments="Color" Android="Transparent" iOS="#19000000"/>
+            <OnPlatform x:Key="PLColor" x:TypeArguments="Color" Android="#80ffffff" iOS="#80ffffff"/>
+
+            <Style x:Key="loginInput" TargetType="Entry">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource PLColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource BGColor}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="Margin" Value="50, 0, 50, 0" />
+
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="WidthRequest" Value="250" />
+
+            </Style>
+            <Style x:Key="loginBut" TargetType="Button">
+                <Setter Property="TextColor" Value="#fb6a06" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="BorderRadius" Value="24" />
+                <Setter Property="Margin" Value="120, 16, 113, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+                <Button
+                    Text="-"
+                    Margin="170, 2, 0, 0"
+                    Clicked="OnMinus"
+                    WidthRequest="20"
+                    HeightRequest="20"
+                    BackgroundColor="#ebebeb"
+                    TextColor="Black"
+                    BorderRadius="10"
+                    FontSize="5"
+                />
+
+                <Button
+                    Text="+"
+                    Margin="230, 2, 0, 0"
+                    Clicked="OnPlus"
+                    WidthRequest="20"
+                    HeightRequest="20"
+                    BackgroundColor="#ebebeb"
+                    TextColor="Black"            
+                    BorderRadius="10"
+                 />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 20, 10, 5" HeightRequest="35">
+                <Label
+                    Font="Bold"
+                    Text="{DynamicResource operatingHours}"
+                    TextColor="Black"
+                />
+                <BoxView 
+                    HeightRequest="2" WidthRequest ="130" BackgroundColor="#ff8026"
+                    Margin="150, 10, 0, 0"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="{DynamicResource nightTime}"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="free_coffee"
+                    Margin="200, -5, 0, 0"
+                 />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="{DynamicResource openWeekends}"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="free_coffee"
+                    Margin="200, -5, 0, 0"
+                 />
+            
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Open 24/7"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="free_coffee"
+                    Margin="200, -5, 0, 0"
+                 />
+
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 20, 10, 5" HeightRequest="35">
+                
+                <BoxView 
+                    HeightRequest="2" WidthRequest ="130" BackgroundColor="#ff8026"
+                    Margin="150, 10, 0, 0"
+                />
+                <Label
+                    Font="Bold"
+                    Text="Amenties"
+                    TextColor="Black"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 5, 10, 0">
+                <Label
+                    Text="Coffee (free only)"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="free_coffee"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Coffee"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="coffee"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Printing (free only)"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="free_printing"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Conference room"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="conference_room"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Outdoor space"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="outdoor_space"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Extra monitor"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="extra_monitor"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+            <Label
+                    Text="Nap room"
+                    TextColor="#8b8b8b"
+                />
+            <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="nap_room"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Pet friendly"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="pet_friendly"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Kitchen"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="kitchen"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Bike storage"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="bike_storage"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Parking (free_only)"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="free_parking"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Parking"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="parking"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Snacks"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="snacks"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Whiteboards"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="whiteboards"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Standing desk"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="standing_desk"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Mail service"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="mail_service"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+
+            <RelativeLayout VerticalOptions="End" Margin="0, 10, 10, 0">
+                <Label
+                    Text="Phone booth"
+                    TextColor="#8b8b8b"
+                />
+                <viewmoddels:CheckBoxImage 
+                    WidthRequest="25" 
+                    HeightRequest="25" 
+                    Value="phone_booth"
+                    Margin="200, -5, 0, 0"
+                    Clicked="OnAmenty"
+                 />
+            </RelativeLayout>
+            <viewmoddels:RoundedButton
+                Text="Show"
+                Clicked="OnShow"
+                TextColor="White"
+                BackgroundColor="#ff8026"          
+                WidthRequest="100"
+                HeightRequest="40"
+                Margin="0, 10, 45, 0"
+            />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

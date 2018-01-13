@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="D4w_cross.Views.CoworkingDetailPage"
+             xmlns:ViewModels="clr-namespace:D4w_cross.Models.Views"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             >
+    <ContentPage.Content>
+       
+        <ScrollView Margin="0, 20, 0, 0" BackgroundColor="White">
+            <StackLayout>
+                <!--<Image Source="{Binding DisplayImage}" Aspect="AspectFit" HeightRequest="200"/>-->
+                <ScrollView 
+                    x:Name="ImagesScroll" 
+                    Orientation="Horizontal" 
+                    HeightRequest="200" 
+                    Margin="25, 0, 25, 0"
+                 >
+                    <StackLayout x:Name="Images" Orientation="Horizontal">
+                        <StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+
+                <ViewModels:RoundedButton x:Name="Hold" Text="HOLD SEAT" Clicked="OnHoldSeat"
+                    BackgroundColor="#ff8026"
+                    TextColor="White"
+                    BorderRadius="20"
+                    Margin="80, 25"
+                />
+
+                <Label Text="{Binding FullName}" HorizontalOptions="Center" Margin="25, 0, 25, 20" Font="Bold" TextColor="Black" />
+                <Label Text="{Binding Description}" TextColor="#a8a8a8" FontSize="Small"  Margin="25, 0, 25, 35" />
+
+                <Label Text="Essentials" Margin="25, 0, 25, 20" Font="Bold" TextColor="Black" />
+                <Grid Margin="25, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Seats available" TextColor="#a8a8a8" FontSize="Small"                       
+                        Grid.Column="0" Grid.Row="0"
+                    />
+                    <Label Text="{Binding SeatsAvailable}" Font="Bold" FontSize="Small"  TextColor="Black"
+                        HorizontalOptions="End"
+                        Grid.Column="1" Grid.Row="0"
+                    />
+                    <Label Text="Time remaining" TextColor="#a8a8a8" FontSize="Small"                  
+                        Grid.Column="0" Grid.Row="1"
+                    />
+                    <Label Text="40h 0m" Font="Bold" FontSize="Small"  TextColor="Black"
+                        HorizontalOptions="End"
+                        Grid.Column="1" Grid.Row="1"
+                    />
+                </Grid>
+
+                <Label Text="Hours" Font="Bold" Margin="25, 20, 25, 20"  TextColor="Black" />
+
+                <RelativeLayout HeightRequest="180" VerticalOptions="End" Margin="25, 0, 0, 0">
+                    <ListView x:Name="Hours1" WidthRequest="200" VerticalOptions="End" ItemSelected="OnDay" SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Day}" TextColor="#8e8e8e"/>
+                                        <Label Text="{Binding BeginWork, StringFormat='{}{0:hh\\:mm}'}" Font="Bold" TextColor="Black"/>
+                                        <Label Text="{Binding EndWork, StringFormat='{}{0:hh\\:mm}'}" Font="Bold" TextColor="Black"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView x:Name="Hours2" Margin="200, 0, 0, 0" VerticalOptions="End" ItemSelected="OnDay" SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Day}" TextColor="#8e8e8e"/>
+                                        <Label Text="{Binding BeginWork, StringFormat='{}{0:hh\\:mm}'}" Font="Bold" TextColor="Black"/>
+                                        <Label Text="{Binding EndWork, StringFormat='{}{0:hh\\:mm}'}" Font="Bold" TextColor="Black"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RelativeLayout>
+
+                <Label Text="Amenities" Font="Bold" Margin="30, 20, 30, 20" TextColor="Black" />
+
+                <ScrollView Orientation="Horizontal" HeightRequest="125" Margin="25, 0, 25, 0">
+                    <StackLayout x:Name="Amenties" Orientation="Horizontal">
+                        <StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+                <Label x:Name="AmentyDescription" Margin="25, -40, 25, 30"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

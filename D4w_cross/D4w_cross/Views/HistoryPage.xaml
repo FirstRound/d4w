@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="D4w_cross.Views.HistoryPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <ListView x:Name="Bookings"  RowHeight="80" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="White">
+                                <RelativeLayout VerticalOptions="End" Margin="20, 10, 0, 0">
+                                    <Label Text="{Binding CoworkingName}" 
+                                           TextColor="Black"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           WidthRequest="150"/>
+                                    <Label Text="{Binding Price}"
+                                           FontSize="20"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8, Constant=0}"
+                                           Margin="0, 10, 0, 0"/>
+                                </RelativeLayout>
+                                <RelativeLayout Margin="20, 0, 0, 0">
+                                    <Label Text="{Binding VisitTime, StringFormat='{0:MM.dd.yy   -   }'}"
+                                           TextColor="LightGray" />
+                                    <Label Text="{Binding VisitTime, StringFormat='{}{0:HH\\:mm} - '}"
+                                           Margin="80, 0, 0, 0"
+                                           TextColor="LightGray" />
+                                    <Label Text="{Binding LeaveTime, StringFormat='{}{0:HH\\:mm}'}"
+                                           Margin="125, 0, 0, 0"
+                                           TextColor="LightGray" />
+                                </RelativeLayout>    
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

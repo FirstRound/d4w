@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:D4w_cross.Models;"
+             xmlns:ViewModels="clr-namespace:D4w_cross.Models.Views"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="D4w_cross.Views.CoworkingsListPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="ToolbarFilters" 
+            Name = "Filters"
+            Order="Primary" 
+            Priority="0" />
+        <ToolbarItem 
+            x:Name="ToolbarMap" 
+            Icon="IconMarker.png" 
+            Order="Primary" 
+            Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout x:Name="Data" BackgroundColor="White" >
+                <StackLayout x:Name="TopPopup" BackgroundColor="#ff8026" Padding="0, 30, 0, 0">
+                    <Grid Margin="20, 0" ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Column="0" Grid.Row="0">
+                            <ViewModels:RoundedButton 
+                                x:Name="AddressFilter"
+                                Text="Where?" 
+                                Font="Bold" 
+                                Clicked="OnWhere"
+                                BackgroundColor="#e77322"
+                                BorderRadius="20"
+                                TextColor="White"
+                            />
+                            <ContentView WidthRequest="24" HeightRequest="24" HorizontalOptions="Start" Margin="15, -40, 0, 0">
+                                <Image Source="WhereIcon.png" Aspect="AspectFit" />
+                            </ContentView>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" Grid.Row="0">
+                            <ViewModels:RoundedButton 
+                                x:Name="DateFilter"
+                                Text="When?" 
+                                Font="Bold" 
+                                Clicked="OnWhen"
+                                BackgroundColor="#e77322"
+                                BorderRadius="20"
+                                TextColor="White"
+                            />
+                            <ContentView WidthRequest="20" HeightRequest="20" HorizontalOptions="Start" Margin="20, -38, 0, 0">
+                                <Image Source="WhenIcon.png" Aspect="AspectFit" />
+                            </ContentView>
+                        </StackLayout>
+                    </Grid>
+
+                    <StackLayout Margin="20, 10, 20, 10">
+                        <ViewModels:RoundedButton
+                            x:Name="TimeFilter"
+                            Clicked="OnTime"
+                            BackgroundColor="#e77322"
+                            BorderRadius="24"
+                            Text="--:--       --:--"     
+                            TextColor="White" 
+                            FontAttributes="Bold"                             
+                        />
+
+                        <ContentView Margin ="150, -35, 150, 0" >
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTime"/>
+                            </ContentView.GestureRecognizers>
+                            <Image Source="TimeIcon.png" Aspect="AspectFit" HeightRequest="12" WidthRequest="12" />
+                        </ContentView>
+                    </StackLayout>
+
+                    <RelativeLayout VerticalOptions="End" Margin="10, 15, 10, 0">
+                        <Label
+                            x:Name="SeatsNum"
+                            Font="Bold"
+                            Text="1"
+                            BackgroundColor="#e77322"
+                            TextColor="White"
+                            HeightRequest="50"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.0, Constant=28}"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1.0, Constant=-56}"
+                        />
+
+                        <ViewModels:RoundedButton 
+                            Text="-"
+                            Clicked="OnMinus"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            BorderRadius="25"
+                            TextColor="White"
+                            FontSize="Large"
+                            BorderWidth="0"
+                            BackgroundColor="#e77322"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=10}"
+                        />
+
+                        <ViewModels:RoundedButton
+                            Text="+"
+                            Clicked="OnPlus"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Margin="0"
+                            BackgroundColor="#e77322"
+                            BorderRadius="25"
+                            TextColor="White"
+                            BorderWidth="0"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1.0, Constant=-60}"
+                        />
+                    </RelativeLayout>
+                    <RelativeLayout VerticalOptions="End" Margin="0, 10, 0, 0">
+                        <StackLayout Margin="40, 0, 0, 0">
+                            <StackLayout Orientation="Horizontal">
+                                <ViewModels:CheckBoxImage 
+                                x:Name="Coffee"
+                                WidthRequest="25" 
+                                HeightRequest="25" 
+                                Clicked="OnCoffee"
+                            />
+                                <Label
+                                Text="Coffee"
+                                TextColor="White"
+                            />
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <ViewModels:CheckBoxImage 
+                                x:Name="FreePrinting"
+                                WidthRequest="25" 
+                                HeightRequest="25" 
+                                Clicked="OnFreePrinting"
+                            />
+                                <Label
+                                Text="Free Printing"
+                                TextColor="White"
+                            />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <ViewModels:CheckBoxImage 
+                                x:Name="Printing"
+                                WidthRequest="25" 
+                                HeightRequest="25" 
+                                Clicked="OnPrinting"
+                            />
+                                <Label
+                                Text="Printing"
+                                TextColor="White"
+                            />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.6, Constant=0}">
+                            <StackLayout Orientation="Horizontal">
+                                <ViewModels:CheckBoxImage 
+                                x:Name="FreeParking"
+                                WidthRequest="25" 
+                                HeightRequest="25" 
+                                Clicked="OnFreeParking"
+                            />
+                                <Label
+                                Text="Free Parking"
+                                TextColor="White"
+                            />
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <ViewModels:CheckBoxImage 
+                                x:Name="Parking"
+                                WidthRequest="25" 
+                                HeightRequest="25" 
+                                Clicked="OnParking"
+                            />
+                                <Label
+                                Text="Parking"
+                                TextColor="White"
+                            />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <ViewModels:CheckBoxImage 
+                                x:Name="Food"
+                                WidthRequest="25" 
+                                HeightRequest="25" 
+                                Clicked="OnFood"
+                            />
+                                <Label
+                                Text="Food"
+                                TextColor="White"
+                            />
+                            </StackLayout>
+                        </StackLayout>
+                    </RelativeLayout>
+                    <ViewModels:RoundedButton Text="Apply" Clicked="OnApply"
+                            BackgroundColor="White"
+                            TextColor="#ff8026"
+                            Margin="25, 15"
+                            BorderRadius="20"
+                        />
+                </StackLayout>
+                <ActivityIndicator x:Name="Running" Color="Orange" IsRunning="true" Margin="0, 200, 0, 0"/>
+                <StackLayout x:Name="NoCoworkings" IsVisible="False" BackgroundColor="White">
+                    <Label Text="No coworkings available" Margin="0, 200, 0, 0" FontSize="30" HorizontalOptions="Center"/>
+                </StackLayout>
+                <ListView x:Name="Coworkings" 
+                          RowHeight="270" 
+                          ItemSelected="OnCoworking" 
+                          SeparatorVisibility="None" 
+                          ItemAppearing="OnCoworkingAppeared"
+                          CachingStrategy ="RecycleElement"
+                          BackgroundColor="White"
+                          > 
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="25, 5, 25, 5">
+                                    <Frame.Content>
+                                        <Frame Padding="15, 15, 15, 15" OutlineColor="Gray" BackgroundColor="White" HasShadow="True" >
+                                            <Frame.Content>
+                                                <StackLayout Padding="0">
+                                                    <ffimageloading:CachedImage Source="{Binding DisplayImage}" Aspect="Fill" HeightRequest="200" Margin="-15, -15, -15, 0" />
+                                                    <BoxView Margin="-15,-6, -15, 0" HeightRequest="3" Color="#ff8026" WidthRequest="500"/>
+                                                    <Label Text="{Binding ShortName}" Margin="0, 0, 0, 0" Font="Bold" TextColor="Black" FontSize="16"/>
+                                                    <StackLayout Orientation="Horizontal" Margin="0, -3, 0, 0">
+                                                        <Label Text="{Binding FormattedTime}"  TextColor="LightGray" FontSize="14"/>
+                                                        <Label Text="{Binding FormattedDistance}"  Margin="140, 0, 0, 0" TextColor="LightGray" FontSize="14"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Frame.Content>
+                                        </Frame>
+                                    </Frame.Content>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

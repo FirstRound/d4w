@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="D4w_cross.Views.BookingPage"
+             xmlns:ViewModels="clr-namespace:D4w_cross.Models.Views"
+             Title="HOLD ON">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout x:Name="Empty" BackgroundColor="White">
+                <Label Text="No active bookings" HorizontalOptions="Center" Margin="0, 250, 0, 0" Font="30" TextColor="Gray"/>
+            </StackLayout>
+            <RelativeLayout x:Name="BookingCard" IsVisible="False" HorizontalOptions="Center">
+                <RelativeLayout x:Name="MapLayout">
+
+                </RelativeLayout>
+                <StackLayout BackgroundColor="White" 
+                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-150}"
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5,Constant=0}"
+                             WidthRequest="300"
+                         >
+                        <RelativeLayout x:Name="BeforeStart" Margin="0, 0, 0, 0" HorizontalOptions="Center" >
+                            <StackLayout>
+                                <Label Text="{Binding CurCoworking.ShortName}"
+                                       Font="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="Center"
+                                       Margin="0, 15, 0, 0" />
+                                <Grid Margin="0, 0, 0, 0" ColumnSpacing="7" HorizontalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="7" />
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition Width="7" />
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition Width="7" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding CurBooking.VisitorsCount, StringFormat='{0} seats'}" Grid.Column="0" Grid.Row="0"
+                                   HorizontalTextAlignment="End"
+                                   TextColor="#c6c6c6"
+                                   FontSize="Small"
+                                   Margin="0" />
+                                <Label Text="-" Grid.Column="1" Grid.Row="0"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"                       
+                                   TextColor="#c6c6c6"
+                                   Margin="0" />
+                                <Label Text="{Binding CurBooking.BeginDate, StringFormat='{0:MM.dd}'}" Grid.Column="2" Grid.Row="0"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="#c6c6c6"
+                                   FontSize="Small"
+                                   Margin="0" />
+                                <Label Text="-" Grid.Column="3" Grid.Row="0"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="#c6c6c6"
+                                   Margin="0" />
+                                <Label Text="{Binding CurBooking.BeginDate, StringFormat='{}{0:HH\\:mm}'}" Grid.Column="4" Grid.Row="0"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"
+                                   TextColor="#c6c6c6"
+                                   Margin="0" />
+                                <Label Text="-" Grid.Column="5" Grid.Row="0"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="#c6c6c6"
+                                   Margin="0" />
+                                <Label Text="{Binding CurBooking.EndDate, StringFormat='{}{0:HH\\:mm}'}" Grid.Column="6" Grid.Row="0"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"
+                                   TextColor="#c6c6c6"
+                                   Margin="0" />
+                                </Grid>
+                                <Label Margin="0, 20, 0, 0" x:Name="BeginTimer" Text="{Binding TimeStr}"  TextColor="Black" HorizontalOptions="Center" FontSize="50"/>
+                                <RelativeLayout HorizontalOptions="Center" Margin="0, -10, 0, 20">
+                                     <Label Text="Days"
+                                       TextColor="#c6c6c6"
+                                       FontSize="Small"
+                                       Margin="5, 0, 0, 0" />
+                                    <Label Text="Hours"
+                                       TextColor="#c6c6c6"
+                                       FontSize="Small"
+                                       Margin="70, 0, 0, 0" />
+                                    <Label Text="Minutes"
+                                       TextColor="#c6c6c6"
+                                       FontSize="Small"
+                                       Margin="130, 0, 0, 0" />
+                                </RelativeLayout>
+                                <Label Text="until the start of the work" 
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="#c6c6c6"
+                                   Margin="0, -5, 0, 10" />
+                        </StackLayout>
+                    </RelativeLayout>
+                    <RelativeLayout x:Name="AfterStart" HorizontalOptions="Center" BackgroundColor="White">
+                        <StackLayout Margin="20, 30, 20, 0">
+                            <Label Text="{Binding CurCoworking.ShortName}"
+                                       Font="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="Center"
+                                       />
+                            <Label Margin="0, 30, 0, 0" Text="Please, come to administrator and press 'Check In' button after registration"  HorizontalTextAlignment="Center"  TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                        </StackLayout>
+                    </RelativeLayout>
+                    <RelativeLayout HorizontalOptions="Center" BackgroundColor="White">
+                        <ViewModels:RoundedButton
+                            Text="Check In"
+                            FontSize="10"
+                            TextColor="White"
+                            BackgroundColor="#ff8026"          
+                            WidthRequest="80"
+                            HeightRequest="35"
+                            HorizontalOptions="Center"  
+                            Clicked="OnCheckIn"
+                        />
+
+                        <ViewModels:StrokeButton
+                            Text="Cancel Hold"       
+                            FontSize="10"
+                            WidthRequest="80"
+                            HeightRequest="35"
+                            HorizontalOptions="Center"  
+                            Margin="100, 0, 0, 0"
+                            TextColor="#c6c6c6"
+                            Clicked="OnCancel"
+                        />
+                    </RelativeLayout>
+                </StackLayout>
+
+                <StackLayout BackgroundColor="White" 
+                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-150}"
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.65}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.25,Constant=0}"
+                             WidthRequest="300">
+                        <Label Text="{Binding CurCoworking.Address}"
+                               Font="Bold"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                               TextColor="Black"
+                               Margin="0, 15, 0, 0" />
+                        <ViewModels:RoundedButton x:Name="Hold" Text="MAP ROUTE TO COWORKING" 
+                                BackgroundColor="#ff8026"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Margin="80, 25"
+                                WidthRequest="310"
+
+                                Clicked="OnOpenMap"
+                            />
+                    </StackLayout>
+            </RelativeLayout>
+            <StackLayout x:Name="BookingStartedCard"  IsVisible="False" BackgroundColor="White">
+                <Image Source="{Binding CurCoworking.DisplayImage}" Aspect="Fill" HeightRequest="200" />
+                <BoxView Margin="-15, -6, -30, 0" HeightRequest="3" Color="#ff8026" WidthRequest="500"/>
+                <Label Text="{Binding CurCoworking.ShortName}"
+                               Font="Bold"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                               TextColor="White" 
+                               FontSize="35" 
+                               Margin="0, -140, 0, 0" />
+    
+                    <RelativeLayout  HeightRequest="50" Margin="0, 100, 0, 0">
+                        <Label Text="{Binding CurBooking.VisitTime, StringFormat='{}{0:HH\\:mm}'}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               Margin="90, 0, 0 ,0"
+                               TextColor="Black"
+                               FontSize="22"
+                                />
+
+                        <Label Text="Start time"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               FontSize="Small"
+                               TextColor="#c6c6c6"
+                               Margin="87, 25, 0 ,0"
+                                />
+
+                        <Label Text="{Binding CurBooking.EndDate, StringFormat='{}{0:HH\\:mm}'}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               Margin="225, 0, 0 ,0"
+                               TextColor="Black"
+                               FontSize="22"
+                               />
+
+                        <Label Text="End time"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               FontSize="Small"
+                               TextColor="#c6c6c6"
+                               Margin="225, 25, 0 ,0"
+                                />
+                </RelativeLayout>
+
+                    <Label Margin="0, 20, 0, 0" Text="{Binding TimeStr}" TextColor="Black" HorizontalOptions="Center" FontSize="50"/>
+                    <RelativeLayout HorizontalOptions="Center" Margin="0, -10, 0, 20">
+                        <Label Text="Hours"
+                               TextColor="#c6c6c6"
+                               FontSize="Small"
+                               Margin="7, 0, 0, 0" />
+                        <Label Text="Minutes"
+                               TextColor="#c6c6c6"
+                               FontSize="Small"
+                               Margin="95, 0, 0, 0" />
+                        <Label Text="Seconds"
+                               TextColor="#c6c6c6"
+                               FontSize="Small"
+                               Margin="185, 0, 0, 0" />
+                    </RelativeLayout>
+                    <ViewModels:RoundedButton
+                        Text="Check Out"
+                        TextColor="White"
+                        BackgroundColor="#ff8026"          
+                        WidthRequest="230"
+                        HeightRequest="50"
+                        Clicked="OnCheckOut"
+                        HorizontalOptions="Center"
+                        Margin="0, 20, 0, 0"
+                    />
+            </StackLayout>
+            <StackLayout x:Name="BookingFinishedCard"  IsVisible="False" Margin="0, 0, 0, 0" BackgroundColor="White"> 
+                <Label Margin="30, 70, 30, 30" HorizontalTextAlignment="Center" FontSize="18" Text="Your bookings is finished! Please, add more time to your current booking or come to administrator and press 'Finish' button."/>
+                <RelativeLayout HorizontalOptions="Center" HeightRequest="100">
+                    <Button Text="-" FontSize="30" Clicked="OnTimeMinus" Margin="-10, 10, 0, 0" WidthRequest="40"/>
+                    <Label  Text="{Binding AdditionalTime, StringFormat='{}{0:HH\\:mm}'}" FontSize="60" Margin="30, 0, 0, 0" TextColor="Black"/>
+                    <Button Text="+" FontSize="30" Clicked="OnTimePlus" Margin="180, 10, 0, 0" WidthRequest="40"/>
+                </RelativeLayout>
+                <RelativeLayout HorizontalOptions="Center" Margin="0, -40, 0, 20">
+                    <Label Text="Hours"
+                                       TextColor="#c6c6c6"
+                                       FontSize="Small"
+                                       Margin="-10, 0, 0, 0" />
+                    <Label Text="Minutes"
+                                       TextColor="#c6c6c6"
+                                       FontSize="Small"
+                                       Margin="70, 0, 0, 0" />
+                </RelativeLayout>
+
+                <ViewModels:RoundedButton 
+                                Text="Add More Time" 
+                                BackgroundColor="#ff8026"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Margin="80, 25"
+                                WidthRequest="310"
+                                Clicked="OnAddTime"
+                 />
+
+                <ViewModels:StrokeButton 
+                                Text="Finish" 
+                                BorderRadius="20"
+                                Margin="80, 0, 80, 0"
+                                WidthRequest="310"
+                                TextColor="#c6c6c6"
+                                Clicked="OnFinish"
+                 />
+            </StackLayout>
+            
+            <StackLayout x:Name="PayCard"  IsVisible="False" Margin="0, 0, 0, 0" BackgroundColor="White">
+                <Label Margin="30, 70, 30, 30" HorizontalTextAlignment="Center" FontSize="18" Text="Amount to pay:"/>
+                <Label x:Name="Price" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="24" Text=""/>
+
+                <ViewModels:RoundedButton 
+                                Text="Pay" 
+                                BackgroundColor="#ff8026"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Margin="80, 25"
+                                WidthRequest="310"
+                                Clicked="OnPay"
+                 />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
